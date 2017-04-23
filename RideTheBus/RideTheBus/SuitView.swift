@@ -1,5 +1,5 @@
 //
-//  HigherOrLowerView.swift
+//  SuitView.swift
 //  RideTheBus
 //
 //  Created by Charlie DiGiovanna on 4/22/17.
@@ -8,15 +8,19 @@
 
 import UIKit
 
-class HigherOrLowerView: UIView {
+class SuitView: UIView {
     @IBOutlet var content_view: UIView!
     @IBOutlet weak var player_label: UILabel!
-    @IBOutlet weak var higher_button: UIButton!
+    @IBOutlet weak var heart_button: UIButton!
+    @IBOutlet weak var spade_button: UIButton!
     @IBOutlet weak var card_imageview: UIImageView!
-    @IBOutlet weak var lower_button: UIButton!
+    @IBOutlet weak var club_button: UIButton!
+    @IBOutlet weak var diamond_button: UIButton!
     @IBOutlet weak var outcome_label: UILabel!
     @IBOutlet weak var beer_imageview: UIImageView!
     @IBOutlet weak var beer_imageview2: UIImageView!
+    @IBOutlet weak var beer_imageview3: UIImageView!
+    @IBOutlet weak var beer_imageview4: UIImageView!
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
     
@@ -26,7 +30,10 @@ class HigherOrLowerView: UIView {
     var button_tapped: UIButton?
     var card: Card?
     var guess_is_correct: Bool {
-        return (button_tapped == higher_button && card!.val > player!.cards[0].val) || (button_tapped == lower_button && card!.val < player!.cards[0].val)
+        return button_tapped == heart_button && card!.suit == .hearts ||
+               button_tapped == spade_button && card!.suit == .spades ||
+               button_tapped == club_button && card!.suit == .clubs ||
+               button_tapped == diamond_button && card!.suit == .diamonds
     }
     
     convenience init(frame: CGRect, vc: ViewController, player: Player) {
@@ -37,7 +44,6 @@ class HigherOrLowerView: UIView {
         self.player_label.text = player.name
         
         pickCard()
-        drawFirstCard()
     }
     
     override init(frame: CGRect) { // for using CustomView in code
@@ -51,7 +57,7 @@ class HigherOrLowerView: UIView {
     }
     
     private func loadNib() {
-        Bundle.main.loadNibNamed("HigherOrLowerView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("SuitView", owner: self, options: nil)
         guard let content = content_view else { return }
         content.frame = self.bounds
         self.addSubview(content)
@@ -64,20 +70,18 @@ class HigherOrLowerView: UIView {
         }
     }
     
-    func drawFirstCard() {
-        let card_frame = CGRect(x: higher_button.frame.minX, y: card_imageview.frame.minY, width: card_imageview.frame.width - 40, height: card_imageview.frame.height)
-        let cv = CardView(frame: card_frame, card: player!.cards[0])
-        addSubview(cv)
-    }
-    
     func drawDrinks() {
         beer_imageview.isHidden = player!.drinks < 1
         beer_imageview2.isHidden = player!.drinks < 2
+        beer_imageview3.isHidden = player!.drinks < 3
+        beer_imageview4.isHidden = player!.drinks < 4
     }
     
     func disableButtons() {
-        higher_button.isEnabled = false
-        lower_button.isEnabled = false
+        heart_button.isEnabled = false
+        spade_button.isEnabled = false
+        club_button.isEnabled = false
+        diamond_button.isEnabled = false
     }
     
     func lowerAlphaOf(_ button: UIButton) {
@@ -114,18 +118,30 @@ class HigherOrLowerView: UIView {
         swipe_recognizer.isEnabled = true
     }
     
-    @IBAction func higherTapped(_ sender: Any) {
-        buttonTapped(higher_button)
+    @IBAction func heartTapped(_ sender: Any) {
+        buttonTapped(heart_button)
     }
     
-    @IBAction func lowerTapped(_ sender: Any) {
-        buttonTapped(lower_button)
+    @IBAction func spadeTapped(_ sender: Any) {
+        buttonTapped(spade_button)
+    }
+    
+    @IBAction func clubTapped(_ sender: Any) {
+        buttonTapped(club_button)
+    }
+    
+    @IBAction func diamondTapped(_ sender: Any) {
+        buttonTapped(diamond_button)
     }
     
     func buttonTapped(_ button: UIButton) {
         button_tapped = button
         disableButtons()
-        lowerAlphaOf(button == higher_button ? lower_button : higher_button)
+        for b in [heart_button, spade_button, club_button, diamond_button] {
+            if b != button_tapped {
+                lowerAlphaOf(b!)
+            }
+        }
         revealCard()
         revealOutcomeLabel()
         updatePlayer()
