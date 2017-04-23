@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RedOrBlackView" customModule="RideTheBus" customModuleProvider="target">
+            <connections>
+                <outlet property="beer_imageview" destination="GPY-RK-8hO" id="7w3-C4-C7d"/>
+                <outlet property="black_button" destination="K8D-d2-hlz" id="GQC-4y-74Q"/>
+                <outlet property="card_image" destination="axz-V5-wuB" id="ihE-5K-sdV"/>
+                <outlet property="content_view" destination="iN0-l3-epB" id="3FU-Vo-8ON"/>
+                <outlet property="outcome_label" destination="1c3-93-UXB" id="5l9-3e-7e0"/>
+                <outlet property="player_label" destination="6vg-RZ-7bc" id="ouV-xT-j1b"/>
+                <outlet property="red_button" destination="gtu-8V-dDd" id="1hV-lf-FoE"/>
+                <outlet property="swipe_label" destination="MrZ-ox-bae" id="TfX-qU-xcn"/>
+                <outlet property="swipe_recognizer" destination="Oeq-DU-cnZ" id="ev3-3s-zYI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="axz-V5-wuB">
+                    <rect key="frame" x="125" y="286" width="164" height="164"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="axz-V5-wuB" secondAttribute="height" multiplier="1:1" id="Xb0-ma-Bhm"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8D-d2-hlz">
+                    <rect key="frame" x="100" y="480" width="214" height="136"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="214" id="XYD-hM-icc"/>
+                        <constraint firstAttribute="height" constant="136" id="tdZ-PA-HUl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
+                    <state key="normal" title="Black">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="blackTapped:" destination="-1" eventType="touchUpInside" id="8Sa-Fv-Xjo"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtu-8V-dDd">
+                    <rect key="frame" x="100" y="127" width="214" height="136"/>
+                    <color key="backgroundColor" red="1" green="0.28101432789448588" blue="0.32284946804619363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="136" id="DM5-PC-Y3q"/>
+                        <constraint firstAttribute="width" constant="214" id="avT-gF-0Ue"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
+                    <state key="normal" title="Red">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="redTapped:" destination="-1" eventType="touchUpInside" id="nnX-jV-HHd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vg-RZ-7bc">
+                    <rect key="frame" x="131" y="32" width="152" height="57"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DRINK!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c3-93-UXB">
+                    <rect key="frame" x="143" y="659" width="128" height="57"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe →" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrZ-ox-bae">
+                    <rect key="frame" x="340" y="674" width="74" height="27"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="GPY-RK-8hO">
+                    <rect key="frame" x="20" y="666" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="L8Y-ZM-sln"/>
+                        <constraint firstAttribute="width" constant="50" id="vRF-XH-Wku"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.15932840009999999" green="0.81009148320000002" blue="0.1824735737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MrZ-ox-bae" secondAttribute="trailing" id="36t-Tr-8tA"/>
+                <constraint firstItem="K8D-d2-hlz" firstAttribute="top" secondItem="axz-V5-wuB" secondAttribute="bottom" constant="30" id="8ze-Ud-zgO"/>
+                <constraint firstItem="1c3-93-UXB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bsv-Rn-agA"/>
+                <constraint firstItem="GPY-RK-8hO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="GTL-UP-lE8"/>
+                <constraint firstAttribute="bottom" secondItem="1c3-93-UXB" secondAttribute="bottom" constant="20" id="LpU-WA-FyL"/>
+                <constraint firstItem="axz-V5-wuB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Nwq-Hm-571"/>
+                <constraint firstItem="K8D-d2-hlz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XD2-Ks-O6f"/>
+                <constraint firstItem="6vg-RZ-7bc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XfR-gf-DeT"/>
+                <constraint firstItem="axz-V5-wuB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="125" id="XkG-pg-f3y"/>
+                <constraint firstAttribute="bottom" secondItem="GPY-RK-8hO" secondAttribute="bottom" constant="20" id="ZNI-uB-cM9"/>
+                <constraint firstItem="axz-V5-wuB" firstAttribute="top" secondItem="gtu-8V-dDd" secondAttribute="bottom" constant="23" id="ei0-nr-XYY"/>
+                <constraint firstItem="MrZ-ox-bae" firstAttribute="centerY" secondItem="1c3-93-UXB" secondAttribute="centerY" id="hDx-2c-dR9"/>
+                <constraint firstItem="6vg-RZ-7bc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="naZ-Yd-PSi"/>
+                <constraint firstItem="gtu-8V-dDd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sIg-cF-PBy"/>
+                <constraint firstAttribute="trailing" secondItem="axz-V5-wuB" secondAttribute="trailing" constant="125" id="yLM-TD-9ju"/>
+            </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Oeq-DU-cnZ" appends="YES" id="ePd-HY-3Ux"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="53"/>
+        </view>
+        <swipeGestureRecognizer enabled="NO" direction="left" id="Oeq-DU-cnZ">
+            <connections>
+                <action selector="swipeRecognized:" destination="-1" id="ojH-kD-4J8"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="beer" width="333" height="333"/>
+        <image name="card_back" width="100" height="100"/>
+    </resources>
+</document>

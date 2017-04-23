@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RideTheBus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride the Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxq-J2-0cT">
+                                <rect key="frame" x="0.0" y="30" width="414" height="57"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvk-hT-rpf">
+                                <rect key="frame" x="118" y="212" width="178" height="77"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="54"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-XD-6hr">
+                                <rect key="frame" x="179" y="297" width="57" height="142"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="100"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLa-mc-ECF">
+                                <rect key="frame" x="119" y="320" width="30" height="97"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.9520812032681053" green="1" blue="0.33721323321749108" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="minusTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rAf-4P-oOx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hit-3N-bqO">
+                                <rect key="frame" x="266" y="320" width="33" height="97"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.95208120330000001" green="1" blue="0.33721323320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="plusTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CjY-gO-AZs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2x-Jt-vme">
+                                <rect key="frame" x="72" y="603" width="271" height="83"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" red="0.95208120330000001" green="1" blue="0.33721323320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getStartedTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="doX-kh-ZXx"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="juS-1u-Rrq">
+                                <rect key="frame" x="20" y="101" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="7ib-5O-XPB"/>
+                                    <constraint firstAttribute="width" constant="80" id="V71-Uz-pTh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="Uav-Oo-dEW">
+                                <rect key="frame" x="226" y="101" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="5MX-B0-7L9"/>
+                                    <constraint firstAttribute="height" constant="80" id="BmE-IA-dMo"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="hGW-hg-gbx">
+                                <rect key="frame" x="314" y="101" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="AW4-v7-Ks8"/>
+                                    <constraint firstAttribute="width" constant="80" id="kWx-eI-c5j"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="nHG-ZJ-D1K">
+                                <rect key="frame" x="108" y="101" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="OhC-tX-s4X"/>
+                                    <constraint firstAttribute="width" constant="80" id="mOI-PV-NsG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15932840013913449" green="0.81009148316062174" blue="0.18247357369671452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pvk-hT-rpf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4JV-LK-cWo"/>
+                            <constraint firstItem="juS-1u-Rrq" firstAttribute="centerY" secondItem="nHG-ZJ-D1K" secondAttribute="centerY" id="5ma-Bt-I20"/>
+                            <constraint firstItem="jPf-XD-6hr" firstAttribute="leading" secondItem="TLa-mc-ECF" secondAttribute="trailing" constant="30" id="77C-nm-bTH"/>
+                            <constraint firstItem="jPf-XD-6hr" firstAttribute="top" secondItem="Pvk-hT-rpf" secondAttribute="bottom" constant="8" id="9ie-v7-sSk"/>
+                            <constraint firstItem="jPf-XD-6hr" firstAttribute="centerY" secondItem="Hit-3N-bqO" secondAttribute="centerY" id="AES-zs-yUW"/>
+                            <constraint firstItem="TLa-mc-ECF" firstAttribute="centerY" secondItem="jPf-XD-6hr" secondAttribute="centerY" id="DrE-hc-D7e"/>
+                            <constraint firstItem="J2x-Jt-vme" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E1C-yA-974"/>
+                            <constraint firstItem="hGW-hg-gbx" firstAttribute="leading" secondItem="Uav-Oo-dEW" secondAttribute="trailing" constant="8" id="Kvi-4z-D3u"/>
+                            <constraint firstItem="hGW-hg-gbx" firstAttribute="centerY" secondItem="Uav-Oo-dEW" secondAttribute="centerY" id="L5x-dh-gxv"/>
+                            <constraint firstItem="jPf-XD-6hr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P5F-dt-vwM"/>
+                            <constraint firstItem="juS-1u-Rrq" firstAttribute="top" secondItem="Qxq-J2-0cT" secondAttribute="bottom" constant="14" id="SLe-Tg-EYu"/>
+                            <constraint firstItem="Qxq-J2-0cT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TJt-o0-IlT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hGW-hg-gbx" secondAttribute="trailing" id="dUR-4l-oN6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="juS-1u-Rrq" secondAttribute="leading" id="fq9-Dn-AY7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J2x-Jt-vme" secondAttribute="bottom" constant="50" id="iDW-tf-hVA"/>
+                            <constraint firstItem="Qxq-J2-0cT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="kYB-hT-q3Q"/>
+                            <constraint firstItem="Uav-Oo-dEW" firstAttribute="centerY" secondItem="nHG-ZJ-D1K" secondAttribute="centerY" id="nAK-lH-arD"/>
+                            <constraint firstItem="nHG-ZJ-D1K" firstAttribute="leading" secondItem="juS-1u-Rrq" secondAttribute="trailing" constant="8" id="sMe-Uv-IGp"/>
+                            <constraint firstItem="Qxq-J2-0cT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="tOX-Ll-Ocj"/>
+                            <constraint firstItem="Hit-3N-bqO" firstAttribute="leading" secondItem="jPf-XD-6hr" secondAttribute="trailing" constant="30" id="tdl-4g-lxm"/>
+                            <constraint firstItem="jPf-XD-6hr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wBp-Sq-Shg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="num_players_label" destination="jPf-XD-6hr" id="Bde-fC-QnY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="card_back" width="100" height="100"/>
+    </resources>
+</document>
