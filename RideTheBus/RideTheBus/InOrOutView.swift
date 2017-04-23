@@ -26,12 +26,11 @@ class InOrOutView: UIView {
     var button_tapped: UIButton?
     var card: Card?
     var guess_is_correct: Bool {
-        let range_start = min(player!.cards[0].val, player!.cards[1].val) + 1
-        let range_end = max(player!.cards[0].val, player!.cards[1].val) - 1
-        if range_start <= range_end {
-            return button_tapped == out_button && card!.val != player!.cards[0].val && card!.val != player!.cards[1].val
-        }
-        return (button_tapped == out_button && !(range_start...range_end).contains(card!.val)) || (button_tapped == in_button && (range_start...range_end).contains(card!.val))
+        let lesser_val = min(player!.cards[0].val, player!.cards[1].val)
+        let greater_val = max(player!.cards[0].val, player!.cards[1].val)
+        let inb = lesser_val < card!.val && greater_val > card!.val
+        let out = lesser_val > card!.val || greater_val < card!.val
+        return button_tapped == in_button && inb || button_tapped == out_button && out
     }
     
     convenience init(frame: CGRect, vc: ViewController, player: Player) {

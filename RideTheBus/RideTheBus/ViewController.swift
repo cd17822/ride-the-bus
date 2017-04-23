@@ -75,16 +75,16 @@ class ViewController: UIViewController {
     
     func createNibs() {
         for player in players {
-            nibs.append(RedOrBlackView(frame: view.frame.offsetBy(dx: self.view.frame.width, dy: 0), vc: self, player: player))
+            nibs.append(RedOrBlackView(frame: view.frame.offsetBy(dx: view.frame.width, dy: 0), vc: self, player: player))
         }
         for player in players {
-            nibs.append(HigherOrLowerView(frame: view.frame.offsetBy(dx: self.view.frame.width, dy: 0), vc: self, player: player))
+            nibs.append(HigherOrLowerView(frame: view.frame.offsetBy(dx: view.frame.width, dy: 0), vc: self, player: player))
         }
         for player in players {
-            nibs.append(InOrOutView(frame: view.frame.offsetBy(dx: self.view.frame.width, dy: 0), vc: self, player: player))
+            nibs.append(InOrOutView(frame: view.frame.offsetBy(dx: view.frame.width, dy: 0), vc: self, player: player))
         }
         for player in players {
-            nibs.append(SuitView(frame: view.frame.offsetBy(dx: self.view.frame.width, dy: 0), vc: self, player: player))
+            nibs.append(SuitView(frame: view.frame.offsetBy(dx: view.frame.width, dy: 0), vc: self, player: player))
         }
         
         nibs[0].frame = view.frame
@@ -112,6 +112,8 @@ class ViewController: UIViewController {
         
         presentNib(atIndex: nib_index)
         let current_nib = nibs[nib_index]
+        
+        current_nib.layoutIfNeeded()
         // yeah i know i should make a protocol that they follow blah blah blah
         (current_nib as? HigherOrLowerView)?.drawDrinks()
         (current_nib as? HigherOrLowerView)?.drawFirstCard()
@@ -119,7 +121,7 @@ class ViewController: UIViewController {
         (current_nib as? InOrOutView)?.drawFirstCard()
         (current_nib as? InOrOutView)?.drawSecondCard()
         (current_nib as? SuitView)?.drawDrinks()
-    
+        
         UIView.animate(withDuration: 1, animations: {
             previous_nib.frame = previous_nib.frame.offsetBy(dx: -self.view.frame.width, dy: 0)
             current_nib.frame = self.view.frame
