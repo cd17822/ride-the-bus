@@ -74,7 +74,7 @@ class InOrOutView: UIView {
     }
     
     func drawSecondCard() {
-        let card_frame = CGRect(x: out_button.frame.minX + 50, y: card_imageview.frame.minY - 10, width: card_imageview.frame.width - 40, height: card_imageview.frame.height)
+        let card_frame = CGRect(x: out_button.frame.minX + 48, y: card_imageview.frame.minY - 10, width: card_imageview.frame.width - 40, height: card_imageview.frame.height)
         let cv = CardView(frame: card_frame, card: player!.cards[1])
         addSubview(cv)
     }
