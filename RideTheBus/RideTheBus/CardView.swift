@@ -41,15 +41,29 @@ class CardView: UIView {
     func drawCard() {
         switch card!.suit {
         case .hearts:
-            val_label.text = "\(card!.val)♥️"
+            val_label.text = "\(letterFor(card!.val))♥️"
             val_label.textColor = .red
         case .clubs:
-            val_label.text = "\(card!.val)♣️"
+            val_label.text = "\(letterFor(card!.val))♣️"
         case .diamonds:
-            val_label.text = "\(card!.val)♦️"
+            val_label.text = "\(letterFor(card!.val))♦️"
             val_label.textColor = .red
         case .spades:
-            val_label.text = "\(card!.val)♠️"
+            val_label.text = "\(letterFor(card!.val))♠️"
         }
+    }
+    
+    func letterFor(_ v: Int) -> String {
+        var s = ""
+        
+        switch v {
+        case 1: s = "A"
+        case 11: s = "J"
+        case 12: s = "Q"
+        case 13: s = "K"
+        default: s = "\(v)"
+        }
+        
+        return s
     }
 }

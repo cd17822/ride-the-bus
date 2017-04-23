@@ -112,9 +112,12 @@ class ViewController: UIViewController {
         
         presentNib(atIndex: nib_index)
         let current_nib = nibs[nib_index]
-        // yeah i know i should make a protocol that they both follow blah blah blah
+        // yeah i know i should make a protocol that they follow blah blah blah
         (current_nib as? HigherOrLowerView)?.drawDrinks()
+        (current_nib as? HigherOrLowerView)?.drawFirstCard()
         (current_nib as? InOrOutView)?.drawDrinks()
+        (current_nib as? InOrOutView)?.drawFirstCard()
+        (current_nib as? InOrOutView)?.drawSecondCard()
         (current_nib as? SuitView)?.drawDrinks()
     
         UIView.animate(withDuration: 1, animations: {

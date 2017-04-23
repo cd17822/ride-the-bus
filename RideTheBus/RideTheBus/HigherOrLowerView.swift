@@ -37,7 +37,6 @@ class HigherOrLowerView: UIView {
         self.player_label.text = player.name
         
         pickCard()
-        drawFirstCard()
     }
     
     override init(frame: CGRect) { // for using CustomView in code

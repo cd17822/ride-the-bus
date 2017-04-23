@@ -28,6 +28,9 @@ class InOrOutView: UIView {
     var guess_is_correct: Bool {
         let range_start = min(player!.cards[0].val, player!.cards[1].val) + 1
         let range_end = max(player!.cards[0].val, player!.cards[1].val) - 1
+        if range_start <= range_end {
+            return button_tapped == out_button && card!.val != player!.cards[0].val && card!.val != player!.cards[1].val
+        }
         return (button_tapped == out_button && !(range_start...range_end).contains(card!.val)) || (button_tapped == in_button && (range_start...range_end).contains(card!.val))
     }
     
@@ -39,8 +42,6 @@ class InOrOutView: UIView {
         self.player_label.text = player.name
         
         pickCard()
-        drawFirstCard()
-        drawSecondCard()
     }
     
     override init(frame: CGRect) { // for using CustomView in code
