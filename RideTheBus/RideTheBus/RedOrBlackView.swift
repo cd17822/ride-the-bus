@@ -11,6 +11,7 @@ import UIKit
 class RedOrBlackView: UIView {
     @IBOutlet var content_view: UIView!
     @IBOutlet weak var player_label: UILabel!
+    @IBOutlet weak var bigBeer: UIImageView!
     @IBOutlet weak var red_button: UIButton!
     @IBOutlet weak var card_image: UIImageView!
     @IBOutlet weak var black_button: UIButton!
@@ -18,6 +19,7 @@ class RedOrBlackView: UIView {
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
     @IBOutlet weak var beer_imageview: UIImageView!
+    var cardView: CardView!
     
     @IBAction func restartButton(_ sender: Any) {
         vc!.restart()
@@ -81,14 +83,21 @@ class RedOrBlackView: UIView {
     
     func revealCard() {
         let card_frame = CGRect(x: card_image.frame.minX + 20, y: card_image.frame.minY, width: card_image.frame.width - 40, height: card_image.frame.height)
-        let cv = CardView(frame: card_frame, card: card!)
-        addSubview(cv)
+        cardView = CardView(frame: card_frame, card: card!)
+        addSubview(cardView)
         card_image.isHidden = true
     }
     
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
+        drinkAnimation()
         outcome_label.isHidden = false
+    }
+    
+    func drinkAnimation(){
+        bigBeer.isHidden = guess_is_correct ? true : false
+        cardView.isHidden = guess_is_correct ? false : true
+        
     }
     
     func updatePlayer() {

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RedOrBlackView" customModule="RideTheBus" customModuleProvider="target">
             <connections>
                 <outlet property="beer_imageview" destination="GPY-RK-8hO" id="7w3-C4-C7d"/>
+                <outlet property="bigBeer" destination="KZu-4U-O51" id="NAv-U4-Oik"/>
                 <outlet property="black_button" destination="K8D-d2-hlz" id="GQC-4y-74Q"/>
                 <outlet property="card_image" destination="axz-V5-wuB" id="ihE-5K-sdV"/>
                 <outlet property="content_view" destination="iN0-l3-epB" id="3FU-Vo-8ON"/>
@@ -107,6 +108,10 @@
                         <action selector="restartButton:" destination="-1" eventType="touchUpInside" id="48M-cD-PP8"/>
                     </connections>
                 </button>
+                <imageView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-4U-O51">
+                    <rect key="frame" x="40" y="136" width="334" height="418"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.15932840009999999" green="0.81009148320000002" blue="0.1824735737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
