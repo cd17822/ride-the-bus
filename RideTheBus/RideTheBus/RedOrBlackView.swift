@@ -19,6 +19,9 @@ class RedOrBlackView: UIView {
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
     @IBOutlet weak var beer_imageview: UIImageView!
     
+    @IBAction func restartButton(_ sender: Any) {
+        vc!.restart()
+    }
     var vc: ViewController?
     var player: Player?
     var button_tapped: UIButton?

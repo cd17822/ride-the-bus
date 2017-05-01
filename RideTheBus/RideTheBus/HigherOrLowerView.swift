@@ -20,6 +20,9 @@ class HigherOrLowerView: UIView {
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
     
+    @IBAction func restartButton(_ sender: Any) {
+        vc!.restart()
+    }
     
     var vc: ViewController?
     var player: Player?

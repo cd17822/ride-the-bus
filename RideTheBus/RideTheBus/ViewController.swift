@@ -129,5 +129,15 @@ class ViewController: UIViewController {
             previous_nib.removeFromSuperview()
         })
     }
+    func restart(){
+        nibs.removeAll()
+        players.removeAll()
+        UIView.animate(withDuration: 1, animations: {
+            self.blanket_view!.alpha = 0
+        }, completion: { _ in
+            self.blanket_view!.removeFromSuperview()
+        })
+        return
+    }
 }
 
