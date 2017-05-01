@@ -96,6 +96,13 @@ class RedOrBlackView: UIView {
     
     func drinkAnimation(){
         bigBeer.isHidden = guess_is_correct ? true : false
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: .curveEaseIn,
+                       animations: {
+                        self.bigBeer.layoutIfNeeded()
+                       },
+                       completion: nil)
         cardView.isHidden = guess_is_correct ? false : true
         
     }
