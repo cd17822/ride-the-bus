@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9056A64F1EB90DAE00971C0A /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9056A64E1EB90DAE00971C0A /* ResultsView.swift */; };
+		9056A6531EB910F200971C0A /* ResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9056A6521EB910F200971C0A /* ResultsView.xib */; };
 		CB8CE4EB1EABF56E000CC6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8CE4EA1EABF56E000CC6F3 /* AppDelegate.swift */; };
 		CB8CE4ED1EABF56E000CC6F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8CE4EC1EABF56E000CC6F3 /* ViewController.swift */; };
 		CB8CE4F01EABF56E000CC6F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB8CE4EE1EABF56E000CC6F3 /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9056A64E1EB90DAE00971C0A /* ResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		9056A6521EB910F200971C0A /* ResultsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsView.xib; sourceTree = "<group>"; };
 		CB8CE4E71EABF56E000CC6F3 /* RideTheBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTheBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8CE4EA1EABF56E000CC6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB8CE4EC1EABF56E000CC6F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,14 +138,16 @@
 				CB8CE5211EABFD47000CC6F3 /* Player.swift */,
 				CB8CE5271EAC0C2F000CC6F3 /* CardView.swift */,
 				CB8CE5291EAC0C48000CC6F3 /* CardView.xib */,
+				9056A64E1EB90DAE00971C0A /* ResultsView.swift */,
+				9056A6521EB910F200971C0A /* ResultsView.xib */,
 				CB8CE5351EAC4B79000CC6F3 /* SuitView.swift */,
 				CB8CE5331EAC4B60000CC6F3 /* SuitView.xib */,
 				CB8CE52F1EAC4677000CC6F3 /* InOrOutView.swift */,
 				CB8CE5311EAC4687000CC6F3 /* InOrOutView.xib */,
-				CB8CE5251EAC077C000CC6F3 /* RedOrBlackView.swift */,
-				CB8CE5231EAC0438000CC6F3 /* RedOrBlackView.xib */,
 				CB8CE52D1EAC29A7000CC6F3 /* HigherOrLowerView.swift */,
 				CB8CE52B1EAC296E000CC6F3 /* HigherOrLowerView.xib */,
+				CB8CE5251EAC077C000CC6F3 /* RedOrBlackView.swift */,
+				CB8CE5231EAC0438000CC6F3 /* RedOrBlackView.xib */,
 				CB8CE4EC1EABF56E000CC6F3 /* ViewController.swift */,
 				CB8CE4EE1EABF56E000CC6F3 /* Main.storyboard */,
 				CB8CE4F41EABF56E000CC6F3 /* Assets.xcassets */,
@@ -283,6 +289,7 @@
 				CB8CE5321EAC4687000CC6F3 /* InOrOutView.xib in Resources */,
 				CB8CE52A1EAC0C48000CC6F3 /* CardView.xib in Resources */,
 				CB8CE4F51EABF56E000CC6F3 /* Assets.xcassets in Resources */,
+				9056A6531EB910F200971C0A /* ResultsView.xib in Resources */,
 				CB8CE5341EAC4B60000CC6F3 /* SuitView.xib in Resources */,
 				CB8CE52C1EAC296E000CC6F3 /* HigherOrLowerView.xib in Resources */,
 				CB8CE4F01EABF56E000CC6F3 /* Main.storyboard in Resources */,
@@ -312,6 +319,7 @@
 			files = (
 				CB8CE51C1EABF625000CC6F3 /* Deck.swift in Sources */,
 				CB8CE5361EAC4B79000CC6F3 /* SuitView.swift in Sources */,
+				9056A64F1EB90DAE00971C0A /* ResultsView.swift in Sources */,
 				CB8CE5281EAC0C2F000CC6F3 /* CardView.swift in Sources */,
 				CB8CE4F31EABF56E000CC6F3 /* RideTheBus.xcdatamodeld in Sources */,
 				CB8CE5301EAC4677000CC6F3 /* InOrOutView.swift in Sources */,

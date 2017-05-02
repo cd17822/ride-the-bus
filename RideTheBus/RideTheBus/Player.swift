@@ -28,6 +28,10 @@ class Player {
         return drinks
     }
     
+    func getName() -> String{
+        return name
+    }
+    
     func addDrink() {
         drinks += 1
     }

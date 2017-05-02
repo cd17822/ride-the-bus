@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     var players = [Player]()
     var nibs = [UIView]()
     var nib_index = 0
-    
+    var mostDrinksPlayer: Player!
+    var leastDrinksPlayer: Player!
     @IBOutlet weak var bigBus: UIImageView!
     
     override func viewDidLoad() {
@@ -47,21 +48,6 @@ class ViewController: UIViewController {
         })
     }
     
-//    func busAnimationOut(){
-//        UIImageView.animate(withDuration: 0.6,
-//                            delay: 1.0,
-//                            options: .curveEaseOut,
-//                            animations: {
-//                                self.bigBus.alpha = 0.0
-//                                self.bigBus.isOpaque = false
-//                                self.bigBus.layoutIfNeeded()
-//                            },
-//                            completion: {(finished: Bool) in
-//                                self.bigBus.removeFromSuperview()
-//                                
-//        })
-//    }
-    
     func updateNumPlayersLabel() {
         num_players_label.text = "\(num_players)"
     }
@@ -81,8 +67,6 @@ class ViewController: UIViewController {
     @IBAction func getStartedTapped(_ sender: Any) {
         initDeck()
         nib_index = 0
-        //busAnimationIn()
-        //busAnimationOut()
         presentBlanketView()
         createPlayers()
         createNibs()
@@ -109,6 +93,8 @@ class ViewController: UIViewController {
         for i in 0..<num_players {
             players.append(Player(name: "Player \(i+1)", number: i+1))
         }
+        mostDrinksPlayer = players[0]
+        leastDrinksPlayer = players[0]
     }
     
     func createNibs() {
@@ -132,21 +118,54 @@ class ViewController: UIViewController {
         blanket_view!.addSubview(nibs[index])
     }
     
+    func presentResultsView(previous_nib: UIView) {
+        blanket_view = UIView(frame: view.frame)
+        blanket_view!.backgroundColor = .red
+        blanket_view!.alpha = 0
+        view.addSubview(blanket_view!)
+        
+        UIView.animate(withDuration: 1,
+                       animations: {
+                        self.blanket_view!.alpha = 1
+                        },
+                       completion: {_ in
+                                    previous_nib.removeFromSuperview()
+        
+        })
+//        UIView.animate(withDuration: 1) {
+//            self.blanket_view!.alpha = 1
+//        }
+        blanket_view!.addSubview(ResultsView(frame: view.frame.offsetBy(dx: view.frame.width, dy: 0), vc: self))
+    }
+    
+    func getResults(previous_nib: UIView){
+        for player in players{
+            if(player.getDrinks() > mostDrinksPlayer.getDrinks()){
+                mostDrinksPlayer = player
+            }
+            if(player.getDrinks() < leastDrinksPlayer.getDrinks()){
+                leastDrinksPlayer = player
+            }
+        }
+        presentResultsView(previous_nib: previous_nib)
+        
+    }
+    
     func registerViewSwipe() {
-        //print(mostDrinksPlayer?.name)
-        //print(leastDrinksPlayer?.name)
+        print(mostDrinksPlayer?.getName() ?? "not assigned")
+        print(leastDrinksPlayer?.getName() ?? "not assigned")
         
         let previous_nib = nibs[nib_index]
         
         nib_index += 1
         
         if nib_index == nibs.count { // go back to home screen
-            nibs.removeAll()
-            players.removeAll()
             UIView.animate(withDuration: 1, animations: {
-                self.blanket_view!.alpha = 0
+                previous_nib.frame = previous_nib.frame.offsetBy(dx: -self.view.frame.width, dy: 0)
+                
             }, completion: { _ in
-                self.blanket_view!.removeFromSuperview()
+                self.getResults(previous_nib: previous_nib)
+                
             })
             return
         }

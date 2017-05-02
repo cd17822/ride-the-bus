@@ -191,6 +191,12 @@ class SuitView: UIView {
     }
     
     @IBAction func swipeRecognized(_ sender: Any) {
+//        if(vc!.mostDrinksPlayer.getDrinks() < (player?.getDrinks())!){
+//            vc!.mostDrinksPlayer = player
+//        }
+//        if(vc!.leastDrinksPlayer.getDrinks() > (player?.getDrinks())!){
+//            vc!.leastDrinksPlayer = player
+//        }
         vc!.registerViewSwipe()
     }
 }
