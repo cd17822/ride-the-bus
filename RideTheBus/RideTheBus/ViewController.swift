@@ -15,13 +15,12 @@ class ViewController: UIViewController {
     var players = [Player]()
     var nibs = [UIView]()
     var nib_index = 0
-    var mostDrinksPlayer: Player?
-    var leastDrinksPlayer: Player?
     
     @IBOutlet weak var bigBus: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //view.addSubview(self.bigBus)
         updateNumPlayersLabel()
     }
 
@@ -31,7 +30,7 @@ class ViewController: UIViewController {
     }
     
     func busAnimationIn(){
-        view.addSubview(self.bigBus)
+        self.view.insertSubview(self.bigBus, aboveSubview: self.view)
         self.bigBus.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 1.5,
                             delay: 0,
@@ -44,7 +43,7 @@ class ViewController: UIViewController {
                                 self.bigBus.layoutIfNeeded()
         },
                             completion: {(finished: Bool) in
-                                self.bigBus.removeFromSuperview()
+                                self.bigBus.alpha = 0.0
         })
     }
     
@@ -82,7 +81,7 @@ class ViewController: UIViewController {
     @IBAction func getStartedTapped(_ sender: Any) {
         initDeck()
         nib_index = 0
-        busAnimationIn()
+        //busAnimationIn()
         //busAnimationOut()
         presentBlanketView()
         createPlayers()
@@ -95,6 +94,7 @@ class ViewController: UIViewController {
     }
     
     func presentBlanketView() {
+        busAnimationIn()
         blanket_view = UIView(frame: view.frame)
         blanket_view!.backgroundColor = .backgroundColor
         blanket_view!.alpha = 0

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		907E933F1EB8311400872395 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E933E1EB8311400872395 /* ResultsView.swift */; };
-		907E93411EB8313D00872395 /* ResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907E93401EB8313D00872395 /* ResultsView.xib */; };
 		CB8CE4EB1EABF56E000CC6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8CE4EA1EABF56E000CC6F3 /* AppDelegate.swift */; };
 		CB8CE4ED1EABF56E000CC6F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8CE4EC1EABF56E000CC6F3 /* ViewController.swift */; };
 		CB8CE4F01EABF56E000CC6F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB8CE4EE1EABF56E000CC6F3 /* Main.storyboard */; };
@@ -51,8 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		907E933E1EB8311400872395 /* ResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		907E93401EB8313D00872395 /* ResultsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsView.xib; sourceTree = "<group>"; };
 		CB8CE4E71EABF56E000CC6F3 /* RideTheBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTheBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8CE4EA1EABF56E000CC6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB8CE4EC1EABF56E000CC6F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,8 +134,6 @@
 				CB8CE5211EABFD47000CC6F3 /* Player.swift */,
 				CB8CE5271EAC0C2F000CC6F3 /* CardView.swift */,
 				CB8CE5291EAC0C48000CC6F3 /* CardView.xib */,
-				907E933E1EB8311400872395 /* ResultsView.swift */,
-				907E93401EB8313D00872395 /* ResultsView.xib */,
 				CB8CE5351EAC4B79000CC6F3 /* SuitView.swift */,
 				CB8CE5331EAC4B60000CC6F3 /* SuitView.xib */,
 				CB8CE52F1EAC4677000CC6F3 /* InOrOutView.swift */,
@@ -289,7 +283,6 @@
 				CB8CE5321EAC4687000CC6F3 /* InOrOutView.xib in Resources */,
 				CB8CE52A1EAC0C48000CC6F3 /* CardView.xib in Resources */,
 				CB8CE4F51EABF56E000CC6F3 /* Assets.xcassets in Resources */,
-				907E93411EB8313D00872395 /* ResultsView.xib in Resources */,
 				CB8CE5341EAC4B60000CC6F3 /* SuitView.xib in Resources */,
 				CB8CE52C1EAC296E000CC6F3 /* HigherOrLowerView.xib in Resources */,
 				CB8CE4F01EABF56E000CC6F3 /* Main.storyboard in Resources */,
@@ -326,7 +319,6 @@
 				CB8CE5261EAC077C000CC6F3 /* RedOrBlackView.swift in Sources */,
 				CB8CE51E1EABF6A7000CC6F3 /* Card.swift in Sources */,
 				CB8CE52E1EAC29A7000CC6F3 /* HigherOrLowerView.swift in Sources */,
-				907E933F1EB8311400872395 /* ResultsView.swift in Sources */,
 				CB8CE5221EABFD47000CC6F3 /* Player.swift in Sources */,
 				CB8CE4ED1EABF56E000CC6F3 /* ViewController.swift in Sources */,
 				CB8CE4EB1EABF56E000CC6F3 /* AppDelegate.swift in Sources */,

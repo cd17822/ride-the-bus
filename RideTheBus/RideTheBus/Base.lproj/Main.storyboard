@@ -99,7 +99,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="busVect" translatesAutoresizingMaskIntoConstraints="NO" id="5Ii-wI-Lyn">
-                                <rect key="frame" x="72" y="447" width="271" height="135"/>
+                                <rect key="frame" x="21" y="212" width="373" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
