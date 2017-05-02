@@ -108,7 +108,7 @@
                         <action selector="restartButton:" destination="-1" eventType="touchUpInside" id="48M-cD-PP8"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-4U-O51">
+                <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-4U-O51">
                     <rect key="frame" x="40" y="136" width="334" height="418"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

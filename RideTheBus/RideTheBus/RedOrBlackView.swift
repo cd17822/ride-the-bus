@@ -90,18 +90,24 @@ class RedOrBlackView: UIView {
     
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
-        drinkAnimation()
+        if(!guess_is_correct){
+            drinkAnimation()
+        }
         outcome_label.isHidden = false
     }
     
     func drinkAnimation(){
-        bigBeer.isHidden = guess_is_correct ? true : false
-        UIView.animate(withDuration: 0.5,
+        self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIImageView.animate(withDuration: 1.5,
                        delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
                        options: .curveEaseIn,
                        animations: {
+                        self.bigBeer.alpha = 1.0
+                        self.bigBeer.transform = .identity
                         self.bigBeer.layoutIfNeeded()
-                       },
+                        },
                        completion: nil)
         cardView.isHidden = guess_is_correct ? false : true
         
