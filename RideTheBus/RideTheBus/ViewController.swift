@@ -93,8 +93,8 @@ class ViewController: UIViewController {
         for i in 0..<num_players {
             players.append(Player(name: "Player \(i+1)", number: i+1))
         }
-        mostDrinksPlayer = players[0]
-        leastDrinksPlayer = players[0]
+        //mostDrinksPlayer = players[0]
+        //leastDrinksPlayer = players[0]
     }
     
     func createNibs() {
@@ -152,9 +152,21 @@ class ViewController: UIViewController {
 //    }
     
     func registerViewSwipe() {
-        print(mostDrinksPlayer?.getName() ?? "not assigned")
-        print(leastDrinksPlayer?.getName() ?? "not assigned")
+        let playerTemp1 = Player(name: "null", number: 40)
+        playerTemp1.drinks = 0
+        mostDrinksPlayer = playerTemp1
+        let playerTemp2 = Player(name: "null1", number: 41)
+        playerTemp2.drinks = 10000
         
+        leastDrinksPlayer = playerTemp2
+        for player in players{
+            if(player.getDrinks() > mostDrinksPlayer.getDrinks()){
+                mostDrinksPlayer = player
+            }
+            if(player.getDrinks() < leastDrinksPlayer.getDrinks()){
+                leastDrinksPlayer = player
+            }
+        }
         let previous_nib = nibs[nib_index]
         
         nib_index += 1
@@ -181,6 +193,7 @@ class ViewController: UIViewController {
         (current_nib as? InOrOutView)?.drawFirstCard()
         (current_nib as? InOrOutView)?.drawSecondCard()
         (current_nib as? SuitView)?.drawDrinks()
+        (current_nib as? ResultsView)?.getResults()
         
         
         UIView.animate(withDuration: 1, animations: {

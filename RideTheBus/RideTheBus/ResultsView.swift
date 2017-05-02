@@ -14,7 +14,6 @@ class ResultsView: UIView {
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet weak var mostDrinksPlayerLabel: UILabel!
     
-    
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
     @IBOutlet weak var leastDrinksPlayerLabel: UILabel!
     
@@ -24,8 +23,6 @@ class ResultsView: UIView {
     convenience init(frame: CGRect, vc: ViewController) {
         self.init(frame: frame)
         self.vc = vc
-        self.mostDrinksPlayerLabel.text = vc.mostDrinksPlayer.name
-        self.leastDrinksPlayerLabel.text = vc.leastDrinksPlayer.name
     }
     
     override init(frame: CGRect) { // for using CustomView in code
@@ -43,6 +40,11 @@ class ResultsView: UIView {
         guard let content = content_view else { return }
         content.frame = self.bounds
         self.addSubview(content)
+    }
+    
+    func getResults(){
+        self.mostDrinksPlayerLabel.text = vc?.mostDrinksPlayer.name
+        self.leastDrinksPlayerLabel.text = vc?.leastDrinksPlayer.name
     }
     
     @IBAction func restartButton(_ sender: Any) {
