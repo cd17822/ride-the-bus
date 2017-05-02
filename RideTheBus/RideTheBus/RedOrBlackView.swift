@@ -91,25 +91,47 @@ class RedOrBlackView: UIView {
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
         if(!guess_is_correct){
-            drinkAnimation()
+            drinkAnimationIn()
+            drinkAnimationOut()
         }
         outcome_label.isHidden = false
     }
     
-    func drinkAnimation(){
+    func drinkAnimationIn(){
+        self.cardView.isHidden = true
+        //exchangeSubview(at: 1, withSubviewAt: 0)
         self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 1.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0,
-                       options: .curveEaseIn,
-                       animations: {
-                        self.bigBeer.alpha = 1.0
-                        self.bigBeer.transform = .identity
-                        self.bigBeer.layoutIfNeeded()
-                        },
-                       completion: nil)
-        cardView.isHidden = guess_is_correct ? false : true
+                            delay: 0,
+                            usingSpringWithDamping: 0.5,
+                            initialSpringVelocity: 0,
+                            options: .curveEaseIn,
+                            animations: {
+                                self.bigBeer.alpha = 1.0
+                                self.bigBeer.transform = .identity
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: nil
+        )
+        
+        
+    }
+    func drinkAnimationOut(){
+        //self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIImageView.animate(withDuration: 0.6,
+                            delay: 1.0,
+                            options: .curveEaseOut,
+                            animations: {
+                                //self.bigBeer.bringSubview(toFront: self.bigBeer)
+                                self.bigBeer.alpha = 0.0
+                                //self.bigBeer.transform = .identity
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: {(finished: Bool) in
+                                self.cardView.isHidden = false
+                                //self.exchangeSubview(at: 1, withSubviewAt: 0)
+                                
+        })
         
     }
     

@@ -19,6 +19,9 @@ class HigherOrLowerView: UIView {
     @IBOutlet weak var beer_imageview2: UIImageView!
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
+    var cardView: CardView!
+    @IBOutlet weak var bigBeer: UIImageView!
+    
     
     @IBAction func restartButton(_ sender: Any) {
         vc!.restart()
@@ -90,13 +93,49 @@ class HigherOrLowerView: UIView {
     
     func revealCard() {
         let card_frame = CGRect(x: card_imageview.frame.minX + 20, y: card_imageview.frame.minY, width: card_imageview.frame.width - 40, height: card_imageview.frame.height)
-        let cv = CardView(frame: card_frame, card: card!)
-        addSubview(cv)
+        cardView = CardView(frame: card_frame, card: card!)
+        addSubview(cardView)
         card_imageview.isHidden = true
+    }
+    
+    func drinkAnimationIn(){
+        self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIImageView.animate(withDuration: 1.5,
+                            delay: 0,
+                            usingSpringWithDamping: 0.5,
+                            initialSpringVelocity: 0,
+                            options: .curveEaseIn,
+                            animations: {
+                                self.bigBeer.alpha = 1.0
+                                self.bigBeer.transform = .identity
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: nil)
+        
+        
+    }
+    func drinkAnimationOut(){
+        //self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIImageView.animate(withDuration: 0.6,
+                            delay: 1.0,
+                            options: .curveEaseOut,
+                            animations: {
+                                self.bigBeer.alpha = 0.0
+                                //self.bigBeer.transform = .identity
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: nil)
+        
+        
     }
     
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
+        if(!guess_is_correct){
+            drinkAnimationIn()
+            drinkAnimationOut()
+            
+        }
         outcome_label.isHidden = false
     }
     

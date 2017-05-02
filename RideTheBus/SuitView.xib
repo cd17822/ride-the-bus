@@ -16,6 +16,7 @@
                 <outlet property="beer_imageview2" destination="eLy-rR-rRI" id="Imm-RM-y4P"/>
                 <outlet property="beer_imageview3" destination="x0m-gj-YVh" id="5GZ-HI-igN"/>
                 <outlet property="beer_imageview4" destination="aOc-U4-TSY" id="ohJ-NV-pbM"/>
+                <outlet property="bigBeer" destination="eso-T1-bLS" id="4CV-pk-vDi"/>
                 <outlet property="card_imageview" destination="aFw-XY-MPD" id="EMF-nd-a55"/>
                 <outlet property="club_button" destination="9VE-ap-ury" id="trr-rG-TF2"/>
                 <outlet property="content_view" destination="90R-iZ-MZE" id="4QZ-Gn-M73"/>
@@ -174,6 +175,10 @@
                         <action selector="restartButton:" destination="-1" eventType="touchUpInside" id="uCZ-VM-idq"/>
                     </connections>
                 </button>
+                <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="eso-T1-bLS">
+                    <rect key="frame" x="20" y="113" width="334" height="418"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.15932840009999999" green="0.81009148320000002" blue="0.1824735737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>

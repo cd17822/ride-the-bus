@@ -20,6 +20,10 @@ class InOrOutView: UIView {
     @IBOutlet weak var beer_imageview3: UIImageView!
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
+    var cardView: CardView!
+    
+    
+    @IBOutlet weak var bigBeer: UIImageView!
     
     @IBAction func restartButton(_ sender: Any) {
         vc!.restart()
@@ -101,13 +105,33 @@ class InOrOutView: UIView {
     
     func revealCard() {
         let card_frame = CGRect(x: card_imageview.frame.minX + 20, y: card_imageview.frame.minY, width: card_imageview.frame.width - 40, height: card_imageview.frame.height)
-        let cv = CardView(frame: card_frame, card: card!)
-        addSubview(cv)
+        cardView = CardView(frame: card_frame, card: card!)
+        addSubview(cardView)
         card_imageview.isHidden = true
+    }
+    
+    func drinkAnimation(){
+        self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIImageView.animate(withDuration: 1.5,
+                            delay: 0,
+                            usingSpringWithDamping: 0.5,
+                            initialSpringVelocity: 0,
+                            options: .curveEaseIn,
+                            animations: {
+                                self.bigBeer.alpha = 1.0
+                                self.bigBeer.transform = .identity
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: nil)
+        cardView.isHidden = guess_is_correct ? false : true
+        
     }
     
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
+        if(!guess_is_correct){
+            drinkAnimation()
+        }
         outcome_label.isHidden = false
     }
     
