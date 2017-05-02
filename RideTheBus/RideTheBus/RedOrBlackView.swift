@@ -165,6 +165,13 @@ class RedOrBlackView: UIView {
     }
     
     @IBAction func swipeRecognized(_ sender: Any) {
+        if((player?.getDrinks())! > (vc?.mostDrinksPlayer?.getDrinks())!){
+            vc?.mostDrinksPlayer = player
+        }
+        
+        if((player?.getDrinks())! < (vc?.leastDrinksPlayer?.getDrinks())!){
+            vc?.leastDrinksPlayer = player
+        }
         vc!.registerViewSwipe()
     }
 }

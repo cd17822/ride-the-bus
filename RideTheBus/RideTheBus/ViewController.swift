@@ -15,10 +15,13 @@ class ViewController: UIViewController {
     var players = [Player]()
     var nibs = [UIView]()
     var nib_index = 0
+    var mostDrinksPlayer: Player?
+    var leastDrinksPlayer: Player?
+    
+    @IBOutlet weak var bigBus: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateNumPlayersLabel()
     }
 
@@ -26,6 +29,39 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func busAnimationIn(){
+        view.addSubview(self.bigBus)
+        self.bigBus.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIImageView.animate(withDuration: 1.5,
+                            delay: 0,
+                            usingSpringWithDamping: 0.5,
+                            initialSpringVelocity: 0,
+                            options: .curveEaseIn,
+                            animations: {
+                                self.bigBus.alpha = 1.0
+                                self.bigBus.transform = .identity
+                                self.bigBus.layoutIfNeeded()
+        },
+                            completion: {(finished: Bool) in
+                                self.bigBus.removeFromSuperview()
+        })
+    }
+    
+//    func busAnimationOut(){
+//        UIImageView.animate(withDuration: 0.6,
+//                            delay: 1.0,
+//                            options: .curveEaseOut,
+//                            animations: {
+//                                self.bigBus.alpha = 0.0
+//                                self.bigBus.isOpaque = false
+//                                self.bigBus.layoutIfNeeded()
+//                            },
+//                            completion: {(finished: Bool) in
+//                                self.bigBus.removeFromSuperview()
+//                                
+//        })
+//    }
     
     func updateNumPlayersLabel() {
         num_players_label.text = "\(num_players)"
@@ -46,6 +82,8 @@ class ViewController: UIViewController {
     @IBAction func getStartedTapped(_ sender: Any) {
         initDeck()
         nib_index = 0
+        busAnimationIn()
+        //busAnimationOut()
         presentBlanketView()
         createPlayers()
         createNibs()
@@ -95,6 +133,9 @@ class ViewController: UIViewController {
     }
     
     func registerViewSwipe() {
+        //print(mostDrinksPlayer?.name)
+        //print(leastDrinksPlayer?.name)
+        
         let previous_nib = nibs[nib_index]
         
         nib_index += 1
@@ -121,6 +162,7 @@ class ViewController: UIViewController {
         (current_nib as? InOrOutView)?.drawFirstCard()
         (current_nib as? InOrOutView)?.drawSecondCard()
         (current_nib as? SuitView)?.drawDrinks()
+        
         
         UIView.animate(withDuration: 1, animations: {
             previous_nib.frame = previous_nib.frame.offsetBy(dx: -self.view.frame.width, dy: 0)
