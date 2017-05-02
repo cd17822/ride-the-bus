@@ -110,7 +110,8 @@ class InOrOutView: UIView {
         card_imageview.isHidden = true
     }
     
-    func drinkAnimation(){
+    func drinkAnimationIn(){
+        insertSubview(self.bigBeer, aboveSubview: cardView)
         self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 1.5,
                             delay: 0,
@@ -122,15 +123,29 @@ class InOrOutView: UIView {
                                 self.bigBeer.transform = .identity
                                 self.bigBeer.layoutIfNeeded()
         },
-                            completion: nil)
-        cardView.isHidden = guess_is_correct ? false : true
-        
+                            completion: nil
+        )
+    }
+    func drinkAnimationOut(){
+        UIImageView.animate(withDuration: 0.6,
+                            delay: 1.0,
+                            options: .curveEaseOut,
+                            animations: {
+                                self.bigBeer.alpha = 0.0
+                                self.isOpaque = false
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: {(finished: Bool) in
+                                self.bigBeer.removeFromSuperview()
+                                
+        })
     }
     
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
         if(!guess_is_correct){
-            drinkAnimation()
+            drinkAnimationIn()
+            drinkAnimationOut()
         }
         outcome_label.isHidden = false
     }

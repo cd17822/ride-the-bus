@@ -98,8 +98,7 @@ class RedOrBlackView: UIView {
     }
     
     func drinkAnimationIn(){
-        self.cardView.isHidden = true
-        //exchangeSubview(at: 1, withSubviewAt: 0)
+        insertSubview(self.bigBeer, aboveSubview: cardView)
         self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 1.5,
                             delay: 0,
@@ -110,29 +109,23 @@ class RedOrBlackView: UIView {
                                 self.bigBeer.alpha = 1.0
                                 self.bigBeer.transform = .identity
                                 self.bigBeer.layoutIfNeeded()
-        },
+                            },
                             completion: nil
         )
-        
-        
     }
     func drinkAnimationOut(){
-        //self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 0.6,
                             delay: 1.0,
                             options: .curveEaseOut,
                             animations: {
-                                //self.bigBeer.bringSubview(toFront: self.bigBeer)
                                 self.bigBeer.alpha = 0.0
-                                //self.bigBeer.transform = .identity
+                                self.isOpaque = false
                                 self.bigBeer.layoutIfNeeded()
-        },
+                            },
                             completion: {(finished: Bool) in
-                                self.cardView.isHidden = false
-                                //self.exchangeSubview(at: 1, withSubviewAt: 0)
+                                self.bigBeer.removeFromSuperview()
                                 
         })
-        
     }
     
     func updatePlayer() {

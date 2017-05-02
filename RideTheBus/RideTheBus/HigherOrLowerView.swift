@@ -99,6 +99,7 @@ class HigherOrLowerView: UIView {
     }
     
     func drinkAnimationIn(){
+        insertSubview(self.bigBeer, aboveSubview: cardView)
         self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 1.5,
                             delay: 0,
@@ -110,23 +111,22 @@ class HigherOrLowerView: UIView {
                                 self.bigBeer.transform = .identity
                                 self.bigBeer.layoutIfNeeded()
         },
-                            completion: nil)
-        
-        
+                            completion: nil
+        )
     }
     func drinkAnimationOut(){
-        //self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 0.6,
                             delay: 1.0,
                             options: .curveEaseOut,
                             animations: {
                                 self.bigBeer.alpha = 0.0
-                                //self.bigBeer.transform = .identity
+                                self.isOpaque = false
                                 self.bigBeer.layoutIfNeeded()
         },
-                            completion: nil)
-        
-        
+                            completion: {(finished: Bool) in
+                                self.bigBeer.removeFromSuperview()
+                                
+        })
     }
     
     func revealOutcomeLabel() {

@@ -97,7 +97,7 @@ class SuitView: UIView {
     
     func revealCard() {
         let card_frame = CGRect(x: card_imageview.frame.minX + 20, y: card_imageview.frame.minY, width: card_imageview.frame.width - 40, height: card_imageview.frame.height)
-        var cardView = CardView(frame: card_frame, card: card!)
+        cardView = CardView(frame: card_frame, card: card!)
         addSubview(cardView)
         card_imageview.isHidden = true
     }
@@ -105,12 +105,14 @@ class SuitView: UIView {
     func revealOutcomeLabel() {
         outcome_label.text = guess_is_correct ? "SAFE!" : "DRINK!"
         if(!guess_is_correct){
-            drinkAnimation()
+            drinkAnimationIn()
+            drinkAnimationOut()
         }
         outcome_label.isHidden = false
     }
     
-    func drinkAnimation(){
+    func drinkAnimationIn(){
+        insertSubview(self.bigBeer, aboveSubview: cardView)
         self.bigBeer.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         UIImageView.animate(withDuration: 1.5,
                             delay: 0,
@@ -122,10 +124,24 @@ class SuitView: UIView {
                                 self.bigBeer.transform = .identity
                                 self.bigBeer.layoutIfNeeded()
         },
-                            completion: nil)
-        cardView.isHidden = guess_is_correct ? false : true
-        
+                            completion: nil
+        )
     }
+    func drinkAnimationOut(){
+        UIImageView.animate(withDuration: 0.6,
+                            delay: 1.0,
+                            options: .curveEaseOut,
+                            animations: {
+                                self.bigBeer.alpha = 0.0
+                                self.isOpaque = false
+                                self.bigBeer.layoutIfNeeded()
+        },
+                            completion: {(finished: Bool) in
+                                self.bigBeer.removeFromSuperview()
+                                
+        })
+    }
+    
     func updatePlayer() {
         if !guess_is_correct {
             player!.addDrink()
