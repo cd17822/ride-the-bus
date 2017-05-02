@@ -13,8 +13,10 @@ class ResultsView: UIView {
 
     @IBOutlet weak var swipe_label: UILabel!
     @IBOutlet weak var mostDrinksPlayerLabel: UILabel!
-    @IBOutlet weak var leastDrinksPlayerLabel: UILabel!
+    
+    
     @IBOutlet var swipe_recognizer: UISwipeGestureRecognizer!
+    @IBOutlet weak var leastDrinksPlayerLabel: UILabel!
     
     var vc: ViewController?
     var button_tapped: UIButton?
